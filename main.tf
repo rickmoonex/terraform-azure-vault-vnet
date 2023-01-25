@@ -271,7 +271,7 @@ resource "azurerm_subnet" "vault_abs" {
 }
 
 resource "azurerm_bastion_host" "main" {
-  count = var.abs_address_prefix == null ? 0 : 1
+  count = var.abs_address_prefix == "" ? 0 : 1
 
   location            = var.resource_group.location
   name                = "${var.resource_name_prefix}-vault-abs"
